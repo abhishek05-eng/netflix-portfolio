@@ -1,17 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-
 const MinimalPreloader = ({ onComplete }) => {
   const preloaderRef = useRef(null);
   const contentRef = useRef(null);
-
   useEffect(() => {
     const tl = gsap.timeline({
       onComplete: () => {
         if (onComplete) onComplete();
       }
     });
-
     tl.set(preloaderRef.current, { autoAlpha: 1 })
       .fromTo(
         contentRef.current,
@@ -32,26 +29,21 @@ const MinimalPreloader = ({ onComplete }) => {
         ease: "power2.inOut"
       });
   }, [onComplete]);
-
   return (
     <div
       ref={preloaderRef}
       className="fixed inset-0 z-[9999] bg-[#050505] flex items-center justify-center select-none overflow-hidden"
     >
       <div ref={contentRef} className="flex flex-col items-center gap-4">
-        {/* Minimal Red Indicator Dot */}
         <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></div>
-
-        {/* Minimal Typography */}
         <h1 
           className="text-2xl md:text-3xl font-black uppercase tracking-[0.3em] text-white"
           style={{ fontFamily: "'Bebas Neue', 'Impact', sans-serif" }}
         >
-          SUSHMITA
+          ABHISHEK
         </h1>
       </div>
     </div>
   );
 };
-
 export default MinimalPreloader;
