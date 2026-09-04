@@ -4,71 +4,47 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Authentic Project Data based on your engineering portfolio
+// Real project data pulled from Abhishek Sabarad's resume
 const projectsData = [
   {
-    title: "Notice Hub",
-    category: "Full-Stack Architecture",
-    description: "Consolidates university announcements and streamlines real-time student communication with high uptime.",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
-    match: "99%",
+    title: "Healthcare Chatbot",
+    category: "AI Disease Prediction System",
+    description: "Dual-interface (CLI + web) diagnosis system powered by Decision Tree and SVM classifiers trained on 4,920 medical records, achieving 100% test accuracy.",
+    tags: ["Python", "scikit-learn", "Flask", "MySQL", "REST API"],
+    match: "100%",
     episode: "S01 E01"
   },
   {
-    title: "Multi-Tenant SaaS Platform",
-    category: "Cloud & Distributed Systems",
-    description: "Containerized enterprise SaaS featuring strict database isolation and granular role-based access control.",
-    tags: ["Docker", "PostgreSQL", "Node.js", "Express"],
-    match: "98%",
+    title: "Exam Preparation Web App",
+    category: "Full-Stack Development",
+    description: "Full-stack web application with a MySQL backend, architecting the schema to manage user profiles, quiz results, and progress tracking.",
+    tags: ["Python", "Flask", "MySQL", "DSA"],
+    match: "97%",
     episode: "S01 E02"
   },
   {
-    title: "Payment Gateway System",
-    category: "Fintech Architecture",
-    description: "Simulates complex transaction state management, webhook verification, and multi-method processing.",
-    tags: ["JavaScript", "PostgreSQL", "REST APIs", "Docker"],
-    match: "97%",
+    title: "Touring Application",
+    category: "API & Cloud Integration",
+    description: "Client-server, REST-based touring app integrating the Google Maps API and cloud data sync, with user authentication and cross-platform error handling.",
+    tags: ["Java", "Python", "Google Maps API", "Cloud Storage"],
+    match: "96%",
     episode: "S01 E03"
   },
   {
-    title: "Productivity Suite Extension",
-    category: "Client-Side Engineering",
-    description: "Custom Chrome extension built with Chrome APIs and advanced JavaScript for task automation and management.",
-    tags: ["JavaScript", "Chrome APIs", "Tailwind CSS", "HTML5"],
-    match: "99%",
+    title: "Smart Agriculture System",
+    category: "IoT, Cloud & Embedded Systems",
+    description: "Multi-sensor NodeMCU/Arduino system for real-time monitoring with a sensor-to-cloud pipeline and live Blynk dashboard. Published as a peer-reviewed research paper.",
+    tags: ["NodeMCU", "Arduino", "Firebase", "Blynk", "I2C/SPI"],
+    match: "98%",
     episode: "S01 E04"
   },
   {
-    title: "AI & ML Diagnostic Engine",
-    category: "Artificial Intelligence",
-    description: "Intelligent data processing pipeline leveraging machine learning models and NLP workflows.",
-    tags: ["Python", "Machine Learning", "NLP", "AWS"],
-    match: "96%",
+    title: "Car Price & Food Ordering UI/UX",
+    category: "Product Design",
+    description: "Designed and prototyped interfaces in Figma for a car price comparison tool and a food ordering website, focused on layout, usability, and user flow.",
+    tags: ["Figma", "Canva", "UI Prototyping", "Wireframing"],
+    match: "95%",
     episode: "S01 E05"
-  },
-  {
-    title: "Algorithmic Problem Solver",
-    category: "Competitive Programming",
-    description: "Optimized data structure solutions across LeetCode, CodeChef, and GeeksforGeeks platforms.",
-    tags: ["Data Structures", "Algorithms", "C++", "JavaScript"],
-    match: "99%",
-    episode: "S01 E06"
-  },
-  {
-    title: "Portfolio Cinematics v2.6",
-    category: "UI/UX & Animation",
-    description: "Award-winning dark studio interactive portfolio featuring GSAP physics and responsive layouts.",
-    tags: ["React", "GSAP", "Tailwind CSS", "Framer Motion"],
-    match: "100%",
-    episode: "S01 E07"
-  },
-  {
-    title: "Cloud CI/CD Pipeline",
-    category: "DevOps & Infrastructure",
-    description: "Automated deployment workflows using GitHub Actions and containerized Docker environments.",
-    tags: ["Docker", "GitHub Actions", "CI/CD", "Render"],
-    match: "98%",
-    episode: "S01 E08"
   }
 ];
 
