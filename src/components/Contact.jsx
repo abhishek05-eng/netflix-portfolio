@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Contact = () => {
   const ref = useRef(null);
-  
+
   // React Form State tracking
   const [formData, setFormData] = useState({
     firstName: '',
@@ -13,11 +13,13 @@ const Contact = () => {
     permission: false
   });
 
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
-  
+
   // Parallax translation for the big background text
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "20%"]);
 
@@ -30,8 +32,8 @@ const Contact = () => {
     }));
   };
 
-  // Handle form submission logic
-  const handleSubmit = (e) => {
+  // Handle form submission logic - sends to Formspree
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.permission) {
@@ -39,10 +41,35 @@ const Contact = () => {
       return;
     }
 
-    console.log("Form Data Submitted Successfully:", formData);
-    alert(`Thanks ${formData.firstName}! Message captured successfully.`);
-    
-    setFormData({ firstName: '', lastName: '', email: '', message: '', permission: false });
+    setStatus('sending');
+
+    try {
+      const response = await fetch("https://formspree.io/f/mppzlqnp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        alert(`Thanks ${formData.firstName}! Your message has been sent.`);
+        setFormData({ firstName: '', lastName: '', email: '', message: '', permission: false });
+      } else {
+        setStatus('error');
+        alert("Something went wrong sending your message. Please try again or email me directly.");
+      }
+    } catch (error) {
+      setStatus('error');
+      alert("Something went wrong sending your message. Please try again or email me directly.");
+    }
   };
 
   return (
@@ -170,9 +197,10 @@ const Contact = () => {
                   
                   <button 
                     type="submit" 
-                    className="px-8 py-3.5 rounded bg-red-600 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-red-700 transition-all duration-300 group whitespace-nowrap shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105"
+                    disabled={status === 'sending'}
+                    className="px-8 py-3.5 rounded bg-red-600 text-white font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-3 hover:bg-red-700 transition-all duration-300 group whitespace-nowrap shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {status === 'sending' ? 'Sending...' : 'Send Message'}
                     <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
