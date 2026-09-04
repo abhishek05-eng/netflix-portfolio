@@ -52,7 +52,7 @@ const Hero = () => {
 
     const xToDot = gsap.quickTo(cursorDotRef.current, "x", { duration: 0.05, ease: "power2.out" });
     const yToDot = gsap.quickTo(cursorDotRef.current, "y", { duration: 0.05, ease: "power2.out" });
-    
+
     const xToRing = gsap.quickTo(cursorRingRef.current, "x", { duration: 0.15, ease: "power3.out" });
     const yToRing = gsap.quickTo(cursorRingRef.current, "y", { duration: 0.15, ease: "power3.out" });
 
@@ -163,7 +163,7 @@ const Hero = () => {
       ></div>
 
       <div ref={contentRef} className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 h-full flex flex-col justify-between pt-24 pb-12">
-        
+
         <div className="hero-anim-item flex items-center justify-between w-full">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded bg-black/80 backdrop-blur-2xl border border-red-600/40 text-xs font-mono uppercase tracking-widest text-white shadow-2xl">
             <span className="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
@@ -178,9 +178,9 @@ const Hero = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 my-auto">
-          
+
           <div className="lg:col-span-5 flex flex-col items-start space-y-5 text-left">
-            
+
             <div className="hero-anim-item flex items-center gap-3">
               <span className="px-2.5 py-0.5 bg-red-600 text-white font-black text-xs rounded tracking-widest shadow-[0_0_20px_rgba(229,9,20,0.8)] animate-pulse">FRESH GRAD</span>
               <span className="text-white/80 text-xs font-mono tracking-widest uppercase">Software Engineer & Problem Solver</span>
@@ -206,7 +206,7 @@ const Hero = () => {
             </p>
 
             <div className="hero-anim-item flex items-center gap-4 pt-2">
-              
+              <a
                 href="#projects"
                 className="px-8 py-3.5 bg-white text-black font-bold text-xs uppercase tracking-widest rounded hover:bg-red-600 hover:text-white transition-all duration-300 shadow-[0_10px_35px_rgba(255,255,255,0.3)] flex items-center gap-2 hover:scale-105 active:scale-95"
               >
@@ -215,7 +215,7 @@ const Hero = () => {
                 </svg>
                 View Projects
               </a>
-              
+              <a
                 href="#contact"
                 className="px-8 py-3.5 bg-neutral-900/80 text-white border border-white/20 font-bold text-xs uppercase tracking-widest rounded hover:bg-neutral-800 transition-all duration-300 shadow-xl backdrop-blur-md flex items-center gap-2 hover:scale-105 active:scale-95"
               >
@@ -230,15 +230,15 @@ const Hero = () => {
           </div>
 
           <div className="lg:col-span-4 flex justify-center perspective-[1200px]">
-            <div 
+            <div
               ref={cardRef}
               className="relative group transform-gpu transition-transform duration-100 ease-out will-change-transform"
             >
               <div className="absolute -inset-3 bg-gradient-to-r from-red-600/70 via-rose-600/40 to-purple-600/20 rounded-3xl blur-3xl opacity-90 group-hover:opacity-100 animate-pulse duration-1000"></div>
-              
+
               <div className="relative w-[280px] md:w-[320px] p-3.5 bg-[#141414]/90 backdrop-blur-2xl rounded-2xl border border-red-600/40 shadow-[0_40px_80px_rgba(0,0,0,0.95)] overflow-hidden">
-                
-                <div 
+
+                <div
                   ref={glareRef}
                   className="absolute inset-[-50%] w-[200%] h-[200%] bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none transform-gpu z-40"
                 ></div>
@@ -295,7 +295,7 @@ const Hero = () => {
           <a href="#projects" className="hover:text-red-500 transition-colors">Projects</a>
           <a href="#contact" className="hover:text-red-500 transition-colors">Contact</a>
         </nav>
-        
+        <a
           href="#hire"
           className="px-5 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 active:scale-95"
         >
